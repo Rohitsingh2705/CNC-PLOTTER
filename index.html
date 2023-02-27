@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/48bec16d56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet"href="css/style.css"/>
+    <link href="css/aos.css" rel="stylesheet">
+    <title>MINI CNC PLOTTER | PROJECT </title>
+</head>
+<body>
+    <header class="sticky top-0 z-50 text-gray-400 bg-gray-900 body-font">
+      <div class="w-full text-gray-400 bg-gray-900 body-font">
+        <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+          <div class="p-4 flex flex-row items-center justify-between">
+            <a href="#" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none focus:shadow-outline zoom">MINI CNC PLOTTER</a>
+            <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#introduction">INTRODUCTION</a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#components">COMPONENTS </a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#softwares">SOFTWARES</a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#electronic and wiring">CONNECTIONS</a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#advantages">ADVANTAGES</a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#mentor">OUR MENTOR</a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#team members">TEAM MEMBERS</a>
+            <a class="px-1 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline zoom" href="#contact">CONTACT</a>
+          </nav>
+        </div>
+      </div>
+      </header>
+      
+      <section id="home" class="text-gray-400 bg-gray-800 body-font bg-fixed" style="background-image:url(assets/bg.jpg);" >
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <div class="text-center lg:w-2/3 w-full animate__animated animate__backInDown">
+                <h1 class="title-font sm:text-6xl text-3xl mb-4 font-medium text-white filter drop-shadow-lg">EXPLORE CNC PLOTTER</h1>
+                <p class="leading-relaxed sm:text-2xl mb-8 filter drop-shadow-lg"><span id="typed"></span></p>
+                <div class="flex justify-center">
+                </div>
+              </div>
+            <img class="lg:w-1/4 md:w-3/6 w-5/6 mb-4 object-cover object-center rounded animate__animated animate__backInUp" alt="hero" src="assets/IMG_20230225_133053.jpg">
+        </div>
+      </section>
+<!--INTRODUCTION Section-->
+      <section class=" text-gray-400 bg-gray-900 body-font" id="introduction">
+        <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">INTRODUCTION</h1>
+            <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">In today’s world, the basic requirement of any industry is to produce large quantity and quality products with low production and installation cost having a high surface finish and great dimensional accuracy. So this can be achieved by a machine which is controlled by Computer. They are basically known as CNC machines. This is the prototype of CNC machines.
+            </p>
+            <p>Computer Numerical Control (or CNC) is an advanced 
+              form of automatic machine that used widely to control 
+              the motion of these machine tools. Numerical control 
+              machine was first invented around in 19th century to 
+              minimize the load of the work. Its advantage ensures 
+              higher efficiency, higher flexibility, and low production 
+              cost, a little working time and a little loss in production. 
+              It mainly follows three steps that are receiving data, 
+              interpreting them and react accordingly.</p>
+          </div>
+          </div>
+      </section>
+
+<!--HISTORY SECTION-->
+      <section class=" text-gray-400 bg-gray-900 body-font" id="history">
+        <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">HISTORY</h1>
+            <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">The first commercial NC machines were built in the 1950's, and ran from punched tape.CNC, and later CNC, allowed for tremendous increases in productivity for machine tools because the machines could be run automatically without requiring constant attention from their operator.        
+            </p>
+            <div data-aos="zoom-in-left" data-aos-duration="2500" class="object-cover object-center h-full w-full zoom">
+            </div>
+            <div data-aos="zoom-in-left" data-aos-duration="2500" class="object-cover object-center h-full w-full zoom">
+                <center><img alt="content" class="object-cover object-center h-80 w-220" src="assets/history.jpg"></center>
+              </div>
+            </div>
+     </section>
+<!--COMPONENTS  Section-->
+      <section class="text-gray-400 bg-gray-800 body-font" id="components">
+        <div data-aos="fade-up" class="container px-5 py-24 mx-auto">
+          <div class="text-center mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-white mb-4">COMPONENTS USED</h1>
+            <div class="flex mt-6 justify-center">
+              <div class="w-28 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+            </div>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+              <div class="w-140 h-30 inline-flex items-center justify-center bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                <img alt="testimonial" class="object-cover object-center h-full w-full" src="assets/NEMA 17 STEPPER MOTOR.jpg">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-white text-lg title-font font-medium mb-3">NEMA-17 STEPPER MOTOR</h2>
+                <p class="leading-relaxed text-base">A stepper motor is a brushless DC electric motor that divides a full rotation into a number of equal steps. Stepper Motors represent the heart of CNC plotter. Two stepper motors are used for x and y axis for precise control over drawing pen (sketching unit) for object sketching. They have important role such that they control the size and type of speed, accuracy, CNC router precision etc. . .</p>
+                <a class="text-blue-400 inline-flex items-center mt-3" href="https://www.amazon.in/SunRobotics-Bipolar-Stepper-Robotics-Projects/dp/B07T717DPP/ref=sr_1_1_sspa?crid=QAP7PJXV1N4V&keywords=nema+17+stepper+motor+4.2kg&qid=1677423666&sprefix=nema+17%2Caps%2C352&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">BUY FROM HERE
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+              <div class="w-100 h-30 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                <img alt="testimonial" class="object-cover object-center h-full w-full" src="assets/arduino-cnc.jpg">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-white text-lg title-font font-medium mb-3">CNC SHIELD</h2>
+                <p class="leading-relaxed text-base">This can be used for engraving machines, 3D printers. It is a total of four slots, can drive four A4988 stepper motor.Each road stepper motor needs only two IO ports. In other wors, six IO ports can be well managed three stepper motors. very convenient to use.</p>
+                <a class="text-blue-400 inline-flex items-center mt-3" href="https://www.amazon.in/Engraver-Printer-Shield-Expansion-Driver/dp/B01FW9DIV6/ref=sr_1_1?crid=2VE3ZAVWS6XIV&keywords=cnc+shield+v3+a4988+driver+board&qid=1677423529&sprefix=cnc+shield%2Caps%2C321&sr=8-1">BUY FROM HERE
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+              <div class="w-100 h-25 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                <img alt="testimonial" class="object-cover object-center h-full w-full" src="assets/A4988-Driver.jpg">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-white text-lg title-font font-medium mb-3">CNC SHIELD DRIVER(A4988)</h2>
+                <p class="leading-relaxed text-base">Stepper motor drivers are specifically designed to drive stepper motors, which are capable of continuous rotation with precise position control, even without a feedback system. They offer adjustable current control and multiple step resolutions, and they feature built-in translators that allow a stepper motor to be controlled with simple step and direction inputs. In this project we use two drivers for the two stepper motors.</p>
+                <a class="text-blue-400 inline-flex items-center mt-3" href="https://www.amazon.in/A4988-driver-Stepper-Motor-Driver/dp/B0BV1XVXLV/ref=sr_1_4?keywords=a4988+driver&qid=1677423578&sr=8-4">BUY FROM HERE
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+              <div class="w-100 h-25 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                <img alt="testimonial" class="object-cover object-center h-full w-full" src="assets/arduino-uno.jpg">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-white text-lg title-font font-medium mb-3">ARDIUINO UNO R3</h2>
+                <p class="leading-relaxed text-base">It simplify the process of creating any control system by providing the standard board that can be programmed and connected to the system without the need to any sophisticated PCB design and impementation.</p>
+                <a class="text-blue-400 inline-flex items-center mt-3" href="https://www.amazon.in/IDUINO-SMD-UNO-ATmega328P-Arduino/dp/B09ZVLTSJT/ref=sr_1_4_mod_primary_new?keywords=arduino+uno+r3&qid=1677423388&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=arduino%2Caps%2C349&sr=8-4">BUY FROM HERE
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+              <div class="w-100 h-25 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+                <img alt="testimonial" class="object-cover object-center h-full w-full" src="assets/servomotor.jpg">
+              </div>
+              <div class="flex-grow">
+                <h2 class="text-white text-lg title-font font-medium mb-3">SERVO MOTOR</h2>
+                <p class="leading-relaxed text-base">Servo motor controls the up and down movement of drawing pen in z axis direction It controlled by sending an electrical pulse of variable width, or Pulse Width Modulation (PWM) and this can be achieved using the microcontroller. It determines the position of the shaft, through the control wire, which represent the z axis.</p>
+                <a class="text-blue-400 inline-flex items-center mt-3" href="https://www.amazon.in/ApTechDeals-Micro-Helicopter-Airplane-Controls/dp/B07Q1HT9R5/ref=sr_1_1?keywords=Servo+Motor+SG90S&qid=1677423255&sr=8-1">BUY FROM HERE
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+      </section>
+<!--SOFTWARES USED Section-->
+      <section class="text-gray-400 bg-gray-900 body-font" id="softwares">
+        <div data-aos="zoom-in-right" class="container px-5 py-2 mx-auto">
+          <div class="flex flex-col">
+            <div class="flex mx-auto mt-16 mb-16">
+              <h1 class="text-white font-medium title-font text-2xl mb-2 sm:mb-0">SOFTWARES USED</h1>
+            </div>
+          </div>
+          <div class="container flex flex-wrap -mb-10 -mt-4">
+            <div data-aos="zoom-in-left" data-aos-duration="2500" class="p-4 md:w-1/3 sm:mb-0 mb-6 zoom">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="assets/IDE.jpg">
+              </div>
+              <h2 class="text-xl font-medium title-font text-white mt-5">Arduino IDE</h2>
+              <p class="text-base leading-relaxed mt-2">The open-source Arduino Software (IDE) makes it easy to write code and upload it to the board (https://www.arduino.cc). It is simplified C/C++ functions language- based programming can be download functionality with a rich set of library functions. After download and install on pc can be write the program by C language and from tools and port must be choose the port connection between computer and Arduino through USB. After this step can be verify the program by error checking and the message is done compiling when it finished and no error. After this step can be upload the program on the Arduino</p>
+              <a class="text-blue-400 inline-flex items-center mt-3" href="https://www.arduino.cc/en/software">Learn More
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+            <div data-aos="zoom-in-left" data-aos-duration="2500" class="p-4 md:w-1/3 sm:mb-0 mb-6 zoom">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="content" class="object-cover object-center h-full w-full" src="assets/inkscape.png">
+            </div>
+            <h2 class="text-xl font-medium title-font text-white mt-5">INKSCAPE</h2>
+            <p class="text-base leading-relaxed mt-2">Using this software we can convert any image to their G 
+              code extension file. Inkscape is a free and open source 
+              vector graphics editor it can be used to create or edit 
+              vector graphics such as illustrations, diagram line, arts, 
+              charts, logos and complex paintings. Inkscape’s primary 
+              vector graphics is Scalable Vector Graphics (SVG), 
+              however many other formats can be imported and 
+              exported.
+              Inkscape can render primitive vector shapes (e.g. 
+              rectangles, ellipses, polygon, arcs, spirals, stars and 3D 
+              boxes) and text. These object may be filled with solid 
+              colors, patterns, radial or linear color gradients and their 
+              borders may be stroked, both with adjustable 
+              transparency. Embedding and optional tracing of raster 
+              graphics is also supported, enabling the editor to create 
+              vector graphics from other photos and raster sources. 
+              Created shapes can be further manipulated with 
+              transformation, such as moving, rotating, scaling and 
+              skewing. </p>
+            <a class="text-blue-400 inline-flex items-center mt-3" href="https://inkscape.org/">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+            <div data-aos="zoom-in-left" data-aos-duration="2500" class="p-4 md:w-1/3 sm:mb-0 mb-6 zoom">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="hero" class="object-cover object-center h-full w-full" src="assets/grbl.png">
+            </div>
+            <h2 class="text-xl font-medium title-font text-white mt-5">GRBL CONTROLLER</h2>
+            <p class="text-base leading-relaxed mt-2">GRBL is an open source software or firmware which enables motion control for CNC machines. We can easily install the GRBL firmware to an Arduino and so we instantly get a low cost, high performance CNC controller. The GRBL uses G-code as input, and outputs motion control via the Arduino .</p>
+            <a class="text-blue-400 inline-flex items-center mt-3" href="https://grbl-controller.software.informer.com/3.6/">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>    
+        </div>
+      </section>
+
+<!--ELECTRONICS SYSTEM AND WIRING Section-->
+
+<section class=" text-gray-400 bg-gray-900 body-font" id="electronic and wiring">
+  <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">ELECTRONICS SYSTEM AND WIRING</h1>
+      <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">This section will discuss the electronic parts and wiring which is needed for designing and building our CNC plotter machine. So, the main electronic component required are one Arduino UNO R3, one CNC V3 Shield with A4988 Driver Module with Heatsink for Arduino, stepper motors, D.C. power supply, pen holder, some wires and USB to serial adapter. These are some of the electronics which are needed for the wiring system.</p>
+    </div>
+    <div class="container flex flex-wrap -mb-10 -mt-4">
+      <div data-aos="zoom-in-left" data-aos-duration="2500" class="object-cover object-center h-full w-full zoom">
+    </div>
+    <div data-aos="zoom-in-left" data-aos-duration="2500" class="object-cover object-center h-full w-full zoom">
+        <img alt="content" class="object-cover object-center h-full w-full" src="assets/connection.png">
+      </div>
+    <div>
+    
+</section>
+
+
+<!--ADVANTAGES Section-->
+<section class="text-gray-400 bg-gray-800 body-font" id="advantages">
+  <div data-aos="zoom-in" data-aos-duration="1500"  class="container px-5 py-28 mx-auto">
+    <div class="flex flex-col">
+    <div class="text-center mx-auto mt-2 mb-16">
+      <h1 class="text-white font-medium title-font text-2xl mb-2 sm:mb-0">ADVANTAGES</h1>
+      <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+      <ol>
+        <li>1. CNC machines can be used continuously 24x7 throughout the year and only need to be switched off for occasional maintenance.</li><br>
+        <li>2. CNC machines are programmed with a design which can then be manufactured hundreds or even thousands of times. Each manufactured product will be exactly the same.</li><br>
+        <li>3. Less skilled/trained people can operate CNC machines unlike manual lathes, milling machines etc. which need skilled engineers.</li><br>
+        <li>4. Modern design software allows the designer to simulate the manufacture of his/her idea.</li><br>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!--CONCLUSION Section-->
+<section class=" text-gray-400 bg-gray-900 body-font" id="conclusion">
+  <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">CONCLUSION</h1>
+      <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">In this project, we used the concept of a low-cost plotter 
+        machine, which is easily controlled by the computer. It is 
+        easy to operate and the work also can be done accurate 
+        without any errors. This small machine can be easily 
+        transported and assembled everywhere as required. The 
+        board size of this device is 12X12 cm. Stepper Motor will 
+        run on this standard for board size. If we have an 
+        increase in the size or length of the lead coil, it will be 
+        free to make the large size of the design on paper. Due to 
+        small size it is restricted to a certain area width and 
+        length.
+        
+      </p>
+    </div>
+    </div>
+</section>
+
+<!--FUTURE SCOPE Section
+<section class=" text-gray-400 bg-gray-900 body-font" id="introduction">
+  <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">FUTURE SCOPE</h1>-->
+      <section class="text-gray-400 bg-gray-800 body-font" id="future scope">
+        <div data-aos="zoom-in" data-aos-duration="1500"  class="container px-5 py-28 mx-auto">
+          <div class="flex flex-col">
+          <div class="text-center mx-auto mt-2 mb-16">
+            <h1 class="text-white font-medium title-font text-2xl mb-2 sm:mb-0">FUTURE SCOPES</h1>
+      <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">The machine is just an example of preliminary example 
+        keeping in mind the use and costs incurred. There is 
+        huge scope for further improvements in the machine. 
+        They can be listed below.Its is planned to scale up the 
+        prototype CNC Machine in the terms of size, use more 
+        powerful motors, strengthen the frame and workable 
+        with the materials like aluminum or cast iron, and 
+        augment the CNC control software for stimulation ahead 
+        of actual run. The implementation of 3D printing 
+        technology can also be done to the same hardware for 
+        printing of 3d models.
+      </p>
+    </div>
+    </div>
+</section>
+
+<!--MENTOR SECTION-->
+<section class=" text-gray-400 bg-gray-900 body-font" id="mentor">
+  <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">OUR MENTOR</h1>
+      <span class="self-center inline-block h-1 w-28 rounded bg-blue-500 mt-2 mb-8"></span>
+      <h2 class="text-white text-lg title-font font-medium mb-3">DR. RAJAT SYAL</h2>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">HE IS THE ASSISTANT PROFESSOR OF PHYSICS AT CGC,LANDRAN.</p>
+      <div data-aos="zoom-in-left" data-aos-duration="2500" class="object-cover object-center h-full w-full zoom">
+      </div>
+      <div data-aos="zoom-in-left" data-aos-duration="2500" class="object-cover object-center h-full w-full zoom">
+          <center><img alt="content" class="object-cover object-center h-80 w-220" src="assets/rajat sir..jpg"></center>
+        </div>
+      </div>
+</section>
+
+<!--TEAM MEMBERS Section-->
+<section class="text-gray-400 bg-gray-800 body-font" id="team members">
+  <div data-aos="fade-up" class="container px-5 py-24 mx-auto">
+    <div class="text-center mb-20">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-white mb-4">TEAM MEMBERS</h1>
+      <div class="flex mt-6 justify-center">
+        <div class="w-28 h-1 rounded-full bg-indigo-500 inline-flex"></div>
+      </div>
+    </div>
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-800 bg-gray-800 bg-opacity-10" src="assets/rohit.jpg">
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-white text-lg title-font font-medium mb-3">ROHIT SINGH</h2>
+          <p class="leading-relaxed text-base">He is pursuing B. tech
+            in Mechanical Engineering from CHANDIGARH ENGINEERING COLLEGE
+            LANDRAN, India & 
+            recognized by AICTE, accredited 
+            by NBA. He has 
+            completed his intermediate from KENDRIYA VIDYALAYA F.A.D 33, Dappar.</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-800 bg-gray-800 bg-opacity-10" src="assets/shivam.jpg">
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-white text-lg title-font font-medium mb-3">SHIVAM PANDEY</h2>
+          <p class="leading-relaxed text-base">He is pursuing B. tech
+            in Mechanical Engineering from CHANDIGARH ENGINEERING COLLEGE
+            LANDRAN, India & 
+            recognized by AICTE, accredited 
+            by NBA. He has
+            completed his intermediate from GOVT. MODEL SEN. SEC. SCHOOL, SEC.33D, CHANDIGARH.</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-800 bg-gray-800 bg-opacity-10" src="assets/kamal.jpg">
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-white text-lg title-font font-medium mb-3">KAMAL BHATIA</h2>
+          <p class="leading-relaxed text-base">He is pursuing B. tech
+            in Mechanical Engineering from CHANDIGARH ENGINEERING COLLEGE
+            LANDRAN, India & 
+            recognized by AICTE, accredited 
+            by NBA. He has
+            completed his intermediate from GOVT.SEN. SEC. SCHOOL, NAMHOL, BILASPUR, H.P.</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
+        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-5 flex-shrink-0">
+          <img alt="testimonial" class="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-800 bg-gray-800 bg-opacity-10" src="assets/VAIBHAV.jpg">
+        </div>
+        <div class="flex-grow">
+          <h2 class="text-white text-lg title-font font-medium mb-3">VAIBHAV GOYAL</h2>
+          <p class="leading-relaxed text-base">He is pursuing B. tech
+            in Mechanical Engineering from CHANDIGARH ENGINEERING COLLEGE
+            LANDRAN, India & 
+            recognized by AICTE, accredited 
+            by NBA. He has
+            completed his intermediate from MOUNT CARMEL SCHOOL, SEC.47 B, CHANDIGARH.</p>
+        </div>
+      </div>
+</section>
+
+
+<!--Contact Section-->
+            <section class=" text-gray-400 bg-gray-900 body-font" id="contact">
+              <div data-aos="fade-up" data-aos-duration="800" class="container px-5 py-24 mx-auto">
+                <div class="flex flex-col text-center w-full mb-20">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">YOU CAN FIND ME HERE </h1>
+            <div class="container flex-col space-x-5 mt-4 mb-2 text-white">
+              <a href="mailto:rohitsingh200527@gmail.com" target="_blank"><i class="button-zoom far fa-envelope fa-2x mb-4"></i></a>
+              <a href="https://twitter.com/Rohit_Singh_27" target="_blank"><i class="button-zoom fab fa-twitter fa-2x mb-4"></i></a>
+              <a href="https://www.linkedin.com/in/rohitsingh2705/" target="_blank"><i class="button-zoom fab fa-linkedin fa-2x mb-4"></i></a>
+              <a href="https://github.com/Rohitsingh2705" target="_blank"><i class="button-zoom fab fa-github fa-2x mb-4"></i></a>
+              <a href="https://wa.me/917087555337" target="_blank"><i class="button-zoom fab fa-whatsapp fa-2x mb-4"></i></a>
+
+            </div>
+          </div>
+        </div>
+      </section>
+<!--Footer Section-->
+      <footer class="text-gray-400 bg-gray-900 body-font">
+        <div class="container px-5 mx-auto flex items-center flex-col">
+                <div class="sm:w-2/3 text-center py-6">
+                    <p class="text-sm text-blue-700 font-bold">
+                        © 2023 by Rohit Singh
+                    </p>
+                </div>
+        </div>
+      </footer>
+<!--Scripts Section-->
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <script src="js/aos.js"></script>
+      <script>AOS.init();</script>
+      <!-- Typed.js DONT TOUCH THIS! -->
+      <div id="typed-strings"></div>
+<script>
+    var typed = new Typed('#typed', {
+        strings: ["HELLO, WELCOME TO MINI CNC PLOTTER'S PAGE",
+            "MADE FOR SCIENCE DAY 2023 CGC, LANDRAN",
+            "This project is the Prototype of CNC PLOTTER",
+            "SO, LET'S EXPLORE!!",
+            "Checkout all details about the project",
+            "Thanks for visiting !",
+        ],
+        backSpeed: 20,
+        smartBackspace: true,
+        backDelay: 1500,
+        startDelay: 1000,
+        typeSpeed: 15,
+        loop: true,
+
+    });
+</script>
+
+</body>
+</html>
